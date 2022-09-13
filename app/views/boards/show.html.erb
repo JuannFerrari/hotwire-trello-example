@@ -11,7 +11,6 @@
  <div class="grid grid-flow-col">
   <div class="board" id="columns_container">
     <%= render partial: 'columns/column', collection: @board.columns, locals: { board_id: @board.id} %>
-
   </div>
     <div class='column column--new'>
       <%= render partial: 'columns/form',

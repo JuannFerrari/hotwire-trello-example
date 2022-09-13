@@ -18,7 +18,7 @@
 #  column_id  (column_id => columns.id)
 #
 class Card < ApplicationRecord
-  belongs_to :column
+  belongs_to :column, touch: true
   acts_as_list scope: :column
 
   delegate :board, to: :column
@@ -27,11 +27,5 @@ class Card < ApplicationRecord
     broadcast_append_to(board, target: "column_#{column_id}_cards_container", locals: { card: self, board_id: board.id, column_id: column.id})
   }
 
-  after_destroy_commit -> {
-    broadcast_remove_to(board)
-  }
-
-  after_update_commit -> {
-    broadcast_replace_to(board, locals: { card: self, board_id: board.id, column_id: column.id})
-  }
+  after_destroy_commit -> { broadcast_remove_to(board) }
 end
