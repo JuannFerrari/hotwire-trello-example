@@ -1,0 +1,6 @@
+<%= form_with(model: column, url: url, class: "mb-5", data: { controller: "clear-input", action: "turbo:submit-end->clear-input#trigger" }) do |form| %>
+  <%= form.text_field :name, placeholder: 'Write a new column...',
+        class: 'column__title column__title--input', data: { clear_input_target: "input"} %>
+  <%= form.number_field :board_id, class: 'hidden' %>
+  <%= form.submit 'Send', class: 'column__submit hidden'%>
+<% end %>

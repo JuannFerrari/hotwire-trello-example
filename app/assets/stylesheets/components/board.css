@@ -1,0 +1,17 @@
+.board {
+  align-items: start;
+  display: grid;
+  grid-auto-columns: 20rem;
+  grid-auto-flow: column;
+  margin-top: 2rem;
+  overflow-x: auto;
+  padding: 0 0.8rem 0.8rem;
+}
+
+.board::-webkit-scrollbar {
+  height: 1rem;
+}
+
+.board::-webkit-scrollbar-thumb {
+  background-color: #dddddf;
+}
